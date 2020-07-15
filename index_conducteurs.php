@@ -40,6 +40,7 @@ $Allconducteurs = $conducteur->selectAll();
                 <th scope="col">Prenom</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Age</th>
+                <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +52,9 @@ $Allconducteurs = $conducteur->selectAll();
                 <td><?php echo $conducteur['prenom'];?></td>
                 <td><?php echo $conducteur['nom'];?></td>
                 <td><?php echo $conducteur['age']." "."ans";?></td>
+                <td>
+                    <a href="details_conducteur.php?id_detail=<?php echo $conducteur['id_conducteur'] ;?> "role="button" class="btn btn-outline-success">Afficher</a>
+                </td>
                 </tr>
             <?php
             }
