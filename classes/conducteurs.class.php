@@ -61,4 +61,30 @@ class Conducteurs {
             return false;
         }
     }
+
+    public function update() {
+
+        // $this->selectAll();
+
+        $query = "UPDATE conducteurs SET prenom=:prenom, nom=:nom, age=:age WHERE id_conducteur = :id_update";
+
+        $reqUpdate = $this->conn->prepare($query);
+        
+        $reqUpdate->execute(array(
+                            'id_update' => $this->id,
+                            'prenom' => $this->prenom,
+                            'nom' => $this->nom,
+                            'age' => $this->age
+
+        ));
+
+        // $row = $reqUpdate->fetch();
+
+        // $this->prenom = $row['prenom'];
+        // $this->nom = $row['nom'];
+        // $this->age= $row['age'];
+
+        return $reqUpdate;
+    }
+
 }
