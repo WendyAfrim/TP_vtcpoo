@@ -48,4 +48,17 @@ class Conducteurs {
 
         return $reqInsert;
     }
+
+    public function delete() {
+
+        $query = "DELETE FROM conducteurs WHERE id_conducteur = :id_delete";
+
+        $reqDelete = $this->conn->prepare($query);
+
+        if($resultat = $reqDelete->execute(['id_delete' => $this->id])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
